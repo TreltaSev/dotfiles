@@ -23,7 +23,7 @@ function end_sudo() {
 }
 
 function install() {
-    # yay -S "$1" --noconfirm
+    yay -S "$1" --noconfirm
     log info "Installing $1"
 
 }
@@ -35,6 +35,6 @@ function log() {
 
 # Uses ln to link files
 function link() {
-    # sudo ln -sf "$1" "$2"
+    sudo ln -sf "$1" "$2"
     log debug "Link \"$1\" => \"$2\""
 }
