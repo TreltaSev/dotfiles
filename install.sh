@@ -9,5 +9,5 @@ if [ ! -d "$TARGET_DIR" ]; then
   git clone "$REPO_URL" "$TARGET_DIR"
 fi
 
-bash "$TARGET_DIR/install.sh"
+bash "$TARGET_DIR/main.sh"
 
