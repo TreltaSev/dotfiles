@@ -8,7 +8,7 @@ function path_exists() {
 
 # Writes a dotfile variable into the ~/.bashrc file
 function write_path() {
-    echo -e '\n# Dotfiles dir\nexport DOTFILES="$HOME/dotfiles"' >> $BASHRC
+    write '\n# Dotfiles dir\nexport DOTFILES="$HOME/dotfiles"' $BASHRC
     echo "[INFO] Added DOTFILES to $BASHRC"
     return 0
 }
@@ -22,7 +22,7 @@ function refresh_bash() {
 function ensure_dotfiles_path() {
     
     # Set BashRC
-    BASHRC="${SUDO_USER:+/home/$SUDO_USER}/.bashrc"
+    BASHRC="$HOME/.bashrc"
 
     if ! path_exists; then
         write_path

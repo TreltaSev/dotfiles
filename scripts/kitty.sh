@@ -4,8 +4,8 @@ function setup_kitty() {
     install kitty
 
     # Ensure Folder
-    mkdir -p $HOME/.config/waybar
+    mkdir -p $HOME/.config/kitty
 
     # Link
-    link $DOTFILES/.config/kitty $HOME/.config/waybar
+    link $DOTFILES/.config/kitty/kitty.conf $HOME/.config/kitty/kitty.conf
 }

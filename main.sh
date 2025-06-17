@@ -5,6 +5,7 @@
 # Load scripts
 function load_scripts() {
     source ./utils.sh # Utilities
+
     for file in ./scripts/*.sh; do
         source "$file"
     done
@@ -12,8 +13,11 @@ function load_scripts() {
 
 function main() {
 
-    # Make sure bash is the one running
-    ensure_bash
+    if [ "$1" == "debug" ]; then
+        DEBUG_MODE=true
+    else
+        DEBUG_MODE=false
+    fi
     
     # Load all relevant scripts
     load_scripts
@@ -25,12 +29,10 @@ function main() {
     ensure_dotfiles_path
 
     # Ensure sudo is running
-    ensure_sudo
+    ensure_sudo "$@"
 
     # Make sure gum is installed
     ensure_gum
-
-    
 
     # === Install Scripts ===
 
@@ -52,9 +54,9 @@ function main() {
     install discord
     install visual-studio-code-bin
     install firefox
-    
+
     # Sudo cleanup
     end_sudo
 }
 
-main
+main "${@:1}"
