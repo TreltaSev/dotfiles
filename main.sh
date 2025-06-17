@@ -54,6 +54,7 @@ function main() {
     install discord
     install visual-studio-code-bin
     install firefox
+    install inotify-tools
 
     # Sudo cleanup
     end_sudo
